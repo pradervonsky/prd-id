@@ -60,14 +60,69 @@ body {
 }
 
 #footer img {
-	width: 50px;
-	height: 50px;
+	width: 25px;
+	height: 25px;
 }
 
 #footer img:hover {
 	position: relative;
 	-webkit-transform: translateY(-3px);
 	transform: translateY(-3px);
+}
+
+.twitter,.soundcloud,.instagram,.youtube,.spotify {
+	padding: 0.5vh 0.2vw;
+}
+
+#splashscreen {
+	background-image: url('/assets/PRDWAVEx.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	color: #ffffff;
+	z-index: 50;
+	text-align: center;
+	display: flex;
+	align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+	font-size: 1em;
+}
+
+#splashscreen img {
+	width: 20%;
+}
+
+#splashscreen img:hover {
+	position: relative;
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+	pointer-events: auto;
+}
+
+.enter_link {
+	background-color:#ffffff;
+	color: black;
+	width: auto;
+	cursor: pointer;
+	margin: 0.5em 0 0 0;
+	font-size: 1em;
+}
+
+.enter_link:active {
+    background-color: #555555;
+	color: #ffffff;
+}
+
+.enter_link:hover {
+    background-color: transparent;
+	color: #ffffff;
 }
 
 #box {
@@ -111,11 +166,12 @@ body {
 }
 
 .box1 {
-	letter-spacing: 1.87em;
+	letter-spacing: 2em;
 	width: 70%;
 	padding: 0em 0em 1em 0em;
 	pointer-events: auto;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .box2 {
@@ -124,18 +180,19 @@ body {
 	padding: 0em 0em 1em 0em;
 	pointer-events: auto;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .box3 {
-	letter-spacing: 2.68em;
+	letter-spacing: 2.5em;
 	width: 70%;
 	padding: 0em 0em 1em 0em;
 	pointer-events: auto;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .box1:hover,.box2:hover,.box3:hover {
-	background-color: #555555;
 	color: #ffffff;
 }
 
@@ -154,19 +211,20 @@ body {
 	bottom: 0em;
 }
 
-.btn {
+.text2 {
+	cursor: pointer;
+}
+
+.btn,.btn2 {
     background-color:#ffffff;
 	color: black;
+	width: 100%;
+	cursor: pointer;
 }
 
-.btn:active {
+.btn:active,.btn2:active {
     background-color: #555555;
 	color: #ffffff;
-}
-
-.btn:active .box-left,
-.btn:active ~ .box-left {
-    background-color: transparent;
 }
 
 audio {
@@ -174,6 +232,14 @@ audio {
 }
 
 a {
+	font-size: 1em;
+	font-family: 'Fira Sans Extra Condensed',sans-serif;
+    font-weight: 300;
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 	text-decoration: none;
 }
 
@@ -185,10 +251,8 @@ a:link, a:visited {
 }
 
 a:hover {
-  color: #E5E5E5;
+  color: #A1A1A1;
   position: relative;
-  -webkit-transform: translateY(-2px);
-  transform: translateY(-2px);
 }
 
 h1 {
@@ -236,6 +300,19 @@ p {
   margin-inline-end: 0px;
 }
 
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	outline: none;
+}
+
+input:focus {
+	border: none;
+	outline: none;
+}
+
 /* VIDEO BACKGROUND WITH ANIMATION #WIP */
 
 video {
@@ -252,6 +329,30 @@ video {
 	z-index: -100;
 	transition: opacity 1s ease-out;
 	display: inline-block;
+}
+
+.bg_videoz {
+	position: relative;
+	display: none;
+	z-index: -1;
+}
+
+.bg_videoy {
+	position: relative;
+	display: none;
+	z-index: -10;
+}
+
+.bg_videox {
+	position: relative;
+	display: none;
+	z-index: -50;
+}
+
+.bg_video {
+	position: relative;
+	display: block;
+	z-index: -100;
 }
 
 /*---------------*/
@@ -334,8 +435,8 @@ body::-webkit-scrollbar-thumb {
 	}
 
 	#footer img {
-		width: 100px;
-		height: 100px;
+		width: 72px;
+		height: 72px;
 	}
 	
 	.text {
@@ -346,20 +447,17 @@ body::-webkit-scrollbar-thumb {
 	
 	.text2 {
 		color: black;
+		font-size: 2em;
 	}	
 	
-	.btn {
-		font-size: 1em;
+	.btn,.btn2 {
+		font-size: 2em;
 	}
 	
 	h1 {
 		font-weight:400;
 	}
 
-	h3	{
-		font-size: 2em;
-	}
-	
 	.box-left:active {
 	background-color: transparent;
 	}
@@ -369,14 +467,60 @@ body::-webkit-scrollbar-thumb {
 	color: #ffffff;
 	}
 
-	.bg_video {	
-	background-image: url('/assets/PRDWAVEx.gif');
+	.bg_videoz {	
+	background-image: url('/assets/skyline.gif');
 	background-position: center;
-	background-size: 100%;
+	background-size: cover;
 	background-color: #000000;
 	background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+	}
+
+	.bg_videoy {	
+	background-image: url('/assets/train.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+	}
+	
+	.bg_videox {	
+	background-image: url('/assets/river.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+	}
+
+	.bg_video {	
+	background-image: url('/assets/PRDWAVEx.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+	}
+
+	#splashscreen {
+	font-size: 1em;
+	}
+
+	#splashscreen img {
+	width: 50%;
+	}
+	
+	.enter_link {
+	font-size: 3em;
+	}	
+	
+	video {
+		display: none;
 	}
 	
 	body {
@@ -419,8 +563,8 @@ body::-webkit-scrollbar-thumb {
 	}
 
 	#footer img {
-		width: 100px;
-		height: 100px;
+		width: 72px;
+		height: 72px;
 	}
 	
 	.text {
@@ -430,29 +574,72 @@ body::-webkit-scrollbar-thumb {
 	}
 	
 	.text2 {
+		font-size: 2em;
 		color: black;
 	}	
 	
-	.btn {
-		font-size: 1em;
+	.btn,.btn2 {
+		font-size: 2em;
 	}
 	
 	h1 {
 		font-weight:400;
 	}
-
-	h3	{
-		font-size: 2em;
-	}
 	
-	.bg_video {	
-	background-image: url('/assets/PRDWAVEx.gif');
+	.bg_videoz {	
+	background-image: url('/assets/skyline.gif');
 	background-position: center;
-	background-size: 100%;
+	background-size: cover;
 	background-color: #000000;
 	background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+	}
+
+	.bg_videoy {	
+	background-image: url('/assets/train.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+	}
+	
+	.bg_videox {	
+	background-image: url('/assets/river.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+	}
+
+	.bg_video {	
+	background-image: url('/assets/PRDWAVEx.gif');
+	background-position: center;
+	background-size: cover;
+	background-color: #000000;
+	background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+	}
+	
+	#splashscreen {
+	font-size: 1em;
+	}
+
+	#splashscreen img {
+	width: 50%;
+	}
+	
+	.enter_link {
+	font-size: 3em;
+	}	
+
+	video {
+		display: none;
 	}
 	
 	body {
