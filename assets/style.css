@@ -1,5 +1,5 @@
 /*
-Theme Name: PRDid
+Theme Name: PRDio
 Author: Pradana Aditya
 Description: Pradansky Home Page
 Version: 2.0
@@ -370,7 +370,7 @@ body::-webkit-scrollbar-thumb {
 	}
 
 	.bg_video {	
-	background-image: url('/PRDid/PRDWAVEx.gif');
+	background-image: url('/assets/PRDWAVEx.gif');
 	background-position: center;
 	background-size: 100%;
 	background-color: #000000;
@@ -446,7 +446,7 @@ body::-webkit-scrollbar-thumb {
 	}
 	
 	.bg_video {	
-	background-image: url('/PRDid/PRDWAVEx.gif');
+	background-image: url('/assets/PRDWAVEx.gif');
 	background-position: center;
 	background-size: 100%;
 	background-color: #000000;
