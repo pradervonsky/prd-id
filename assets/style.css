@@ -527,8 +527,8 @@ body::-webkit-scrollbar-thumb {
 	}
 
 	#footer img {
-		width: 2em;
-		height: 2em;
+		width: 1.5em;
+		height: 1.5em;
 		margin: 0.2em;
 	}
 	
@@ -540,11 +540,11 @@ body::-webkit-scrollbar-thumb {
 	
 	.text2 {
 		color: rgb(200, 200, 200);
-		font-size: 1.5em;
+		font-size: 1em;
 	}	
 	
 	.btn,.btn2 {
-		font-size: 1.5em;
+		font-size: 1em;
 	}
 	
 	h1 {
