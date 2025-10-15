@@ -628,6 +628,111 @@ body::-webkit-scrollbar-thumb {
 }
 /*---------------*/
 
+/* PHONES LANDSCAPE MODE */
+@media(min-width:650px) and (max-height:430px) {
+	.box-left {
+		width: 50%;
+		height: 100%;
+	}
+	
+	.box-right {
+		width: 50%;
+		height: 100%;
+	}
+	
+	#footer {
+		width: 50%;
+	}
+
+	#footer img {
+		width: 1.5em;
+		height: 1.5em;
+		margin: 0.25em;
+	}
+	
+	.text {
+		width: 50%;
+		height: 100%;
+	}
+	
+	.box1 {
+		letter-spacing: 1em;
+	}
+
+	.box2 {
+		letter-spacing: 0.6em;
+	}
+
+	.box3 {
+		letter-spacing: 1.2em;
+	}
+	
+	p {
+		font-size: 0.5em;
+	}
+
+	.bg_videoz {	
+		background-image: url('/assets/skyline.gif');
+		background-position: center;
+		background-size: cover;
+		background-color: #000000;
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 100%;
+	}
+
+	.bg_videoy {	
+		background-image: url('/assets/train.gif');
+		background-position: center;
+		background-size: cover;
+		background-color: #000000;
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 100%;
+	}
+	
+	.bg_videox {	
+		background-image: url('/assets/river.gif');
+		background-position: center;
+		background-size: cover;
+		background-color: #000000;
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 100%;
+	}
+
+	.bg_video {	
+		background-image: url('/assets/PRDWAVEx.gif');
+		background-position: center;
+		background-size: cover;
+		background-color: #000000;
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 100%;
+	}
+	
+	#splashscreen {
+		font-size: 1em;
+	}
+
+	#splashscreen img {
+		width: 30%;
+	}
+	
+	.enter_link {
+		font-size: 1.5em;
+	}	
+
+	video {
+		display: none;
+	}
+	
+	body {
+		background-color: #000000;
+	}
+}
+/*---------------*/
+
 /* iPAD DEVICES */
 @media(min-width:979px) and (max-device-width: 1500px) {
 	#box {
