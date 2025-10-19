@@ -1,32 +1,18 @@
-var $Ancient = $("#Ancient")[0];
-$(".box1")
-.mouseenter(function() {
-	$Ancient.play();
-});
+const boxes = [
+  { sel: ".box1", audio: "#Ancient", video: ".bg_videox" },
+  { sel: ".box2", audio: "#Rift", video: ".bg_videoy" },
+  { sel: ".box3", audio: "#Blacklight", video: ".bg_videoz" },
+];
 
-$(".box1")
-.mouseout(function() {
-	$Ancient.pause();
-});
-
-var $Blacklight = $("#Blacklight")[0];
-$(".box2")
-.mouseenter(function() {
-	$Blacklight.play();
-});
-
-$(".box2")
-.mouseout(function() {
-	$Blacklight.pause();
-});
-
-var $Rift = $("#Rift")[0];
-$(".box3")
-.mouseenter(function() {
-	$Rift.play();
-});
-
-$(".box3")
-.mouseout(function() {
-	$Rift.pause();
+boxes.forEach(({ sel, audio, video }) => {
+  const audioEl = $(audio)[0];
+  $(sel).on("mouseenter", function () {
+    audioEl.play();
+    $(".bg_videox, .bg_videoy, .bg_videoz").hide();
+    $(video).show();
+  });
+  $(sel).on("mouseleave", function () {
+    audioEl.pause();
+    $(video).hide();
+  });
 });

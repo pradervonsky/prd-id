@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>PRADANSKY</title>
+	<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+	<meta property="og:image" content="/assets/webicon.jpg">
+	<meta property="og:url" content="https://pradansky.qzz.io">
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
 	<link rel="icon" type="image/jpg" href="/assets/webicon.jpg">
 	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/webicon.jpg">
@@ -25,140 +28,151 @@
 		<div id="progress"></div>
 	</div>
 	<div id="splashscreen">
-		<img src="/assets/PRDCONT.png"/>
-		<input type="button" class="enter_link" value="e n t e r"/>
+		<img src="/assets/pradansky-transparent.png" alt="Pradansky Logo"/>
+		<input type="button" class="enter_link" value="e n t e r" tabindex="0"/>
 	</div>
-	<script>
-	$(".enter_link").click(function() { 
-        $(this).parent().fadeOut(500);
-		});
-	</script>
-	<div id="main">
+	<main id="main">
 		<div id="box">
-		<div class="box-left" onselectstart="return false">
-			<div class="box1">
-				<audio id="Ancient" preload>
-					<source src="/assets/Ancient.mp3" type="audio/mp3">				
-				</audio>
-				<h1>PRA</h1>
+			<div class="box-left" onselectstart="return false">
+				<div class="box1" tabindex="0" aria-label="Pradansky - Ancient audio">
+					<audio id="Ancient" preload>
+						<source src="/assets/Ancient.mp3" type="audio/mp3">
+					</audio>
+					<h1>PRA</h1>
+				</div>
+				<div class="box2" tabindex="0" aria-label="Pradansky - Rift audio">
+					<audio id="Rift" preload>
+						<source src="/assets/Rift.mp3" type="audio/mp3">
+					</audio>
+					<h1>DAN</h1>
+				</div>
+				<div class="box3" tabindex="0" aria-label="Pradansky - Blacklight audio">
+					<audio id="Blacklight" preload>
+						<source src="/assets/Blacklight.mp3" type="audio/mp3">
+					</audio>
+					<h1>SKY</h1>
+				</div>
 			</div>
-			<script>
-			var $Ancient = $("#Ancient")[0];
-			$(".box1")
-			.mouseenter(function() {
-			$Ancient.play();
-			$(".bg_videox").css("display","block");
-			$(".bg_videoy").css("display","none");
-			$(".bg_videoz").css("display","none");
-			});
+			<div class="box-right" onselectstart="return false">
+				<div class="text">
+					<h3>
+						<input type="button" class="btn" value="d e p t h" tabindex="0" aria-label="Show River video"/>
+						<a class="text2" tabindex="0" role="button" aria-label="Show Train video">b e n e a t h</a>
+						<input type="button" class="btn2" value="t h e  s k y" tabindex="0" aria-label="Show Skyline video"/>
+					</h3>
+				</div>
+				<footer id="footer">
+					<a class="instagram" href="https://instagram.com/pradansky" target="_blank" aria-label="Instagram">
+						<img src="/assets/instagram.png" alt="Instagram">
+					</a>
+					<a class="soundcloud" href="https://soundcloud.com/pradansky" target="_blank" aria-label="Soundcloud">
+						<img src="/assets/soundcloud.png" alt="Soundcloud">
+					</a>
+					<a class="tableau" href="https://public.tableau.com/app/profile/prdn" target="_blank" aria-label="Tableau">
+						<img src="/assets/tableau.png" alt="Tableau">
+					</a>
+					<a class="linkedin" href="https://www.linkedin.com/in/prdns" target="_blank" aria-label="LinkedIn">
+						<img src="/assets/linkedin.png" alt="LinkedIn">
+					</a>
+					<a class="youtube" href="https://youtube.com/pradansky" target="_blank" aria-label="YouTube">
+						<img src="/assets/youtube.png" alt="YouTube">
+					</a><br>
+					<a class="site" href="http://twitter.com/pradansky" target="_blank" aria-label="Twitter">
+						<p>[PRD/2021]</p>
+					</a>
+				</footer>
+			</div>	
+			<div class="bg_videox">
+				<video autoplay loop muted webkit-playsinline src="/assets/River.mp4">
+					<source src="/assets/River.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="bg_videoy">
+				<video autoplay loop muted webkit-playsinline src="/assets/Train.mp4">
+					<source src="/assets/Train.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="bg_videoz">
+				<video autoplay loop muted webkit-playsinline src="/assets/Skyline.mp4">
+					<source src="/assets/Skyline.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="bg_video">
+				<video autoplay loop muted webkit-playsinline src="/assets/PRDSpectrumMH.mp4">
+					<source src="/assets/PRDSpectrumMH.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
+	</main>
+	<script>
+	// Splashscreen enter button
+	$(".enter_link").on("click keydown", function(e) {
+		if (e.type === "click" || e.key === "Enter" || e.keyCode === 13) {
+			$(this).parent().fadeOut(500);
+		}
+	});
 
-			$(".box1")
-			.mouseout(function() {
-			$Ancient.pause();
-			$(".bg_videox").css("display","none")
-			});
-			</script>
-			<div class="box2">
-				<audio id="Rift" preload>
-					<source src="/assets/Rift.mp3" type="audio/mp3">
-				</audio>
-				<h1>DAN</h1>
-			</div>
-			<script>
-			var $Rift = $("#Rift")[0];
-			$(".box2")
-			.mouseenter(function() {
-			$Rift.play();
-			$(".bg_videoy").css("display","block");
-			$(".bg_videox").css("display","none");
-			$(".bg_videoz").css("display","none");
-			});
+	// Audio x background hover logic
+	var $Ancient = $("#Ancient")[0];
+	$(".box1")
+	.mouseenter(function() {
+	$Ancient.play();
+	$(".bg_videox").css("display","block");
+	$(".bg_videoy").css("display","none");
+	$(".bg_videoz").css("display","none");
+	});
 
-			$(".box2")
-			.mouseout(function() {
-			$Rift.pause();
-			$(".bg_videoy").css("display","none");
-			});
-			</script>
-			<div class="box3">
-				<audio id="Blacklight" preload>
-					<source src="/assets/Blacklight.mp3" type="audio/mp3">
-				</audio>
-				<h1>SKY</h1>
-			</div>
-			<script>
-			var $Blacklight = $("#Blacklight")[0];
-			$(".box3")
-			.mouseenter(function() {
-			$Blacklight.play();
-			$(".bg_videoz").css("display","block");
-			$(".bg_videoy").css("display","none");
-			$(".bg_videox").css("display","none");
-			});
+	$(".box1")
+	.mouseout(function() {
+	$Ancient.pause();
+	$(".bg_videox").css("display","none")
+	});
 
-			$(".box3")
-			.mouseout(function() {
-			$Blacklight.pause();
-			$(".bg_videoz").css("display","none");
-			});
-			</script>
-		</div>
-		<div class="box-right" onselectstart="return false">
-			<div class="text">
-				<h3><input type="button" class="btn" value="d e p t h"/>
-				<a class="text2">b e n e a t h</a>
-				<input type="button" class="btn2" value="t h e  s k y"/></h3>
-			</div>
-			<script>
-			$(".btn").click(function() {
-				$(".bg_videox").css("display","block")
-				$(".bg_videoy").css("display","none")
-				$(".bg_videoz").css("display","none")
-			});
-			</script>
-			<script>
-			$(".text2").click(function() {
-				$(".bg_videox").css("display","none")
-				$(".bg_videoy").css("display","block")
-				$(".bg_videoz").css("display","none")
-			});
-			</script>
-			<script>
-			$(".btn2").click(function() {
-				$(".bg_videox").css("display","none")
-				$(".bg_videoy").css("display","none")
-				$(".bg_videoz").css("display","block")
-			});
-			</script>
-			<div id="footer">
-				<a class="instagram" href="https://instagram.com/pradansky" target="_blank"><img src="/assets/instagram.png"></a>
-				<a class="soundcloud" href="https://soundcloud.com/pradansky" target="_blank"><img src="/assets/soundcloud.png"></a>
-				<a class="tableau" href="https://public.tableau.com/app/profile/prdn" target="_blank"><img src="/assets/tableau.png"></a>
-				<a class="linkedin" href="https://www.linkedin.com/in/prdns" target="_blank"><img src="/assets/linkedin.png"></a>
-				<a class="youtube" href="https://youtube.com/pradansky" target="_blank"><img src="/assets/youtube.png"></a><br>
-				<a class="site" href="http://twitter.com/pradansky" target="_blank"><p>[PRD/2021]</PRD></p></a>
-			</div>
-		</div>	
-		<div class="bg_videox">
-			<video autoplay loop muted webkit-playsinline src="/assets/River.mp4">
-				<source src="/assets/River.mp4" type="video/mp4">
-			</video>
-		</div>
-		<div class="bg_videoy">
-			<video autoplay loop muted webkit-playsinline src="/assets/Train.mp4">
-				<source src="/assets/Train.mp4" type="video/mp4">
-			</video>
-		</div>
-		<div class="bg_videoz">
-			<video autoplay loop muted webkit-playsinline src="/assets/Skyline.mp4">
-				<source src="/assets/Skyline.mp4" type="video/mp4">
-			</video>
-		</div>
-		<div class="bg_video">
-			<video autoplay loop muted webkit-playsinline src="/assets/PRDSpectrumMH.mp4">
-				<source src="/assets/PRDSpectrumMH.mp4" type="video/mp4">
-			</video>
-		</div>
-		</div>
-	</div>
+	var $Rift = $("#Rift")[0];
+	$(".box2")
+	.mouseenter(function() {
+	$Rift.play();
+	$(".bg_videoy").css("display","block");
+	$(".bg_videox").css("display","none");
+	$(".bg_videoz").css("display","none");
+	});
+
+	$(".box2")
+	.mouseout(function() {
+	$Rift.pause();
+	$(".bg_videoy").css("display","none");
+	});
+	
+	var $Blacklight = $("#Blacklight")[0];
+	$(".box3")
+	.mouseenter(function() {
+	$Blacklight.play();
+	$(".bg_videoz").css("display","block");
+	$(".bg_videoy").css("display","none");
+	$(".bg_videox").css("display","none");
+	});
+
+	$(".box3")
+	.mouseout(function() {
+	$Blacklight.pause();
+	$(".bg_videoz").css("display","none");
+	});
+
+	// Video switching for the right box
+	$(".btn").click(function() {
+		$(".bg_videox").css("display","block")
+		$(".bg_videoy").css("display","none")
+		$(".bg_videoz").css("display","none")
+	});
+	$(".text2").click(function() {
+		$(".bg_videox").css("display","none")
+		$(".bg_videoy").css("display","block")
+		$(".bg_videoz").css("display","none")
+	});
+	$(".btn2").click(function() {
+		$(".bg_videox").css("display","none")
+		$(".bg_videoy").css("display","none")
+		$(".bg_videoz").css("display","block")
+	});
+	</script>
 </body>
