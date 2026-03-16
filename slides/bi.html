@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Intelligence</title>
+
+  <!-- Reveal Core -->
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/reset.css" />
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
+
+  <!-- Syntax Highlighting Theme -->
+  <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css" />
+
+  <!-- Your Custom Theme -->
+  <link rel="stylesheet" href="theme.css" />
+</head>
+
+<body>
+
+  <!-- Back Navigation -->
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    slides
+  </a>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Markdown-driven slides -->
+      <section
+        data-markdown="bi.md"
+        data-separator="^---$"
+        data-separator-vertical="^--$"
+        data-separator-notes="^Note:"
+        data-charset="utf-8">
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal Core -->
+  <script src="node_modules/reveal.js/dist/reveal.js"></script>
+
+  <!-- Plugins -->
+  <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+
+  <script>
+    Reveal.initialize({
+
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      center: false,
+
+      transition: 'fade',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+
+      width: 1280,
+      height: 720,
+      margin: 0.08,
+      minScale: 0.4,
+      maxScale: 1.6,
+
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+
+    }).then(() => {
+      document.querySelectorAll('pre').forEach(pre => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', () => {
+          const code = pre.querySelector('code');
+          navigator.clipboard.writeText(code.textContent).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+          });
+        });
+        pre.style.position = 'relative';
+        pre.appendChild(btn);
+      });
+    });
+  </script>
+
+</body>
+</html>

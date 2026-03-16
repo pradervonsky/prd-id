@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ══════════════════════════════════════
+   Dark Modern Theme for Reveal.js
+   ══════════════════════════════════════ */
+
+:root {
+  --r-background-color: #161b22;
+  --r-main-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --r-main-font-size: 2em;
+  --r-main-color: #c9d1d9;
+
+  --r-heading-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --r-heading-color: #ffffff;
+  --r-heading-font-weight: 600;
+  --r-heading-letter-spacing: -0.02em;
+
+  --r-heading1-size: 2.8em;
+  --r-heading2-size: 1.4em;
+  --r-heading3-size: 1.05em;
+
+  --r-link-color: #5da9ff;
+  --r-link-color-hover: #7dbdff;
+  --r-selection-background-color: #264f78;
+  --r-selection-color: #ffffff;
+
+  --accent: #5da9ff;
+  --surface: #161b22;
+  --border-subtle: #2a2f36;
+  --text-muted: #8b949e;
+}
+
+
+/* ── Base Typography ── */
+
+.reveal {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  text-transform: none;
+  color: var(--r-heading-color);
+}
+
+.reveal h1 {
+  font-weight: 800;
+  font-size: 8em;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25em;
+}
+
+.reveal h2 {
+  font-weight: 600;
+  font-size: 3em;
+  margin: 0;
+  padding: 0 0 0.5em 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 0.25em;
+}
+
+.reveal h3 {
+  font-weight: 600;
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  color: #e0e0e0;
+}
+
+.reveal p {
+  font-size: 1.5em;
+  line-height: 1.65;
+  color: var(--r-main-color);
+  margin-bottom: 0.25em;
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+  margin-left: 1.5em;
+}
+
+.reveal li {
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: var(--r-main-color);
+  margin-bottom: 0.25em;
+  font-weight: 400;
+  padding-left: 0.2em;
+}
+
+.reveal strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.reveal em {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.reveal a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  opacity: 0.8;
+}
+
+
+/* ── Code Styling ── */
+
+.reveal code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 0.15em 0.5em;
+  font-size: 1em;
+  color: #9cdcfe;
+}
+
+.reveal pre {
+  width: 100%;
+  max-height: 65%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+.reveal pre code {
+  padding: 1.2em 1.5em;
+  display: block;
+  font-size: 0.75em;
+  line-height: 1.6;
+  border: none;
+  background: none;
+  overflow: visible;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0.3em 0.8em;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55em;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--border-subtle);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.reveal blockquote {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  padding: 0.8em 1.2em;
+  color: var(--text-muted);
+  font-style: italic;
+  width: 90%;
+  box-shadow: none;
+  border-radius: 0 8px 8px 0;
+}
+
+.reveal hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0.8em auto;
+  width: 100%;
+}
+
+
+/* ══════════════════════════════════════
+   Slide Layout — Title bar + Content
+   ══════════════════════════════════════ */
+
+.reveal .slides section {
+  text-align: left;
+  padding: 1.5em 2.5em 2.5em 0.5em;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Content after h2 grows to fill space */
+.reveal .slides section > *:not(h2):not(h1) {
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   Title Slide — Centered Hero
+   ══════════════════════════════════════ */
+
+.title {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  height: 100%;
+  padding: 0 2em;
+}
+
+.title h2 {
+  font-size: 2em;
+  color: var(--text-muted);
+  max-width: 800px;
+}
+
+.title p {
+  font-size: 1em;
+  color: var(--text-muted);
+  max-width: 800px;
+}
+
+/* ══════════════════════════════════════
+   Controls & UI
+   ══════════════════════════════════════ */
+
+.reveal .progress { color: var(--accent); height: 3px; }
+.reveal .controls button { color: var(--text-muted); }
+.reveal .controls button:hover { color: #ffffff; }
+.reveal .slide-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: var(--text-muted);
+  background: transparent;
+  right: 1.8em;
+  bottom: 1em;
+}
+
+
+/* ── Back Link ── */
+
+.back-link {
+  position: fixed; top: 1.2em; left: 1.5em; z-index: 100;
+  font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 400;
+  color: var(--text-muted); text-decoration: none; transition: color 0.2s ease;
+  display: flex; align-items: center; gap: 0.4em;
+}
+.back-link:hover { color: #ffffff; }
+.back-link svg {
+  width: 14px; height: 14px; stroke: currentColor;
+  fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+
+/* ══════════════════════════════════════
+   Layout Templates
+
+   <!-- .slide: class="box" -->
+   <!-- .slide: class="split-lr" -->
+   <!-- .slide: class="split-tb" -->
+
+   Use *** to separate left/right or top/bottom.
+   Content AFTER the h2 title bar fills the layout.
+   ══════════════════════════════════════ */
+
+
+/* ── 1. Box — single content area ── */
+
+.box {
+  text-align: left;
+}
+
+.box > *:last-child:not(pre) {
+  flex-grow: 1;
+}
+
+.box hr { display: none; }
+
+/* ── 2. Split LR — h2 title, two columns below ── */
+
+.reveal .slides section.split-lr {
+  text-align: left;
+  display: block !important;
+  column-count: 2;
+  column-gap: 2.5em;
+}
+
+/* h2 spans both columns as title bar */
+.split-lr > h2 {
+  column-span: all;
+}
+
+/* *** becomes a column break */
+.split-lr > hr {
+  break-before: column;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.split-lr img { max-width: 100%; max-height: 400px; height: auto; border-radius: 8px; object-fit: cover; }
+
+
+/* ── 3. Split TB — h2 on top, two rows below ── */
+
+.reveal .slides section.split-tb {
+  text-align: left;
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  align-items: start;
+  align-content: start;
+}
+
+/* h2 stays at top as title bar */
+.split-tb > h2 {
+  grid-column: 1;
+}
+
+/* All content flows vertically */
+.split-tb > *:not(h2):not(hr) {
+  grid-column: 1;
+}
+
+.split-tb > hr {
+  display: none;
+}
+
+.split-tb > h3 { margin-bottom: 0.25em; }
+.split-tb > p { font-size: 1.5em; }
+.split-tb > ul, .split-tb > ol { margin-left: 1.5em; }
+.split-tb > ul li, .split-tb > ol li { font-size: 1.5em; margin-bottom: 0.25em; }
+.split-tb img { width: 100%; max-width: 500px; max-height: 400px; height: auto; border-radius: 8px; object-fit: cover; }
+
+
+/* ── Subtle Background Glow ── */
+
+.reveal {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(93, 169, 255, 0.04), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(93, 169, 255, 0.03), transparent 40%),
+    var(--r-background-color);
+}
