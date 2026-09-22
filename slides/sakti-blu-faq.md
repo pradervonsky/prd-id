@@ -28,7 +28,7 @@ A: Kemungkinan satker tersebut belum di-setup sebagai Satker Piloting di Server 
 
 ---
 
-## 3. Supplier (Rekanan)
+## 3. Data Supplier
 
 **Q: Supplier tipe 2 (rekening tunggal) apakah bisa ditambah nomor rekening baru?**
 A: Tidak — supplier tipe 2 hanya boleh memiliki 1 rekening. Kalau butuh rekening lain, harus dibuat sebagai supplier baru (record baru), bukan mengedit rekening yang lama.
@@ -41,7 +41,7 @@ A: Jangan dihapus jika sudah dipakai BAST (berisiko BAST ikut hilang) — sebaik
 
 ---
 
-## 4. BAST (Berita Acara Serah Terima) & Persediaan
+## 4. BAST & Persediaan
 
 **Q: Perekaman BAST dengan akun 525174/525173 kenapa bermasalah / tidak lanjut ke SPP?**
 A: Akun tersebut belum di-setup di SAKTI Production, sehingga BAST tidak membentuk jurnal. Perekaman dengan akun ini harus dipending sampai ada pemberitahuan lanjutan; BAST yang terlanjur direkam akan dihapus terpusat oleh tim dan harus direkam ulang setelah akun disetup.
@@ -74,6 +74,12 @@ A: Ubah tampilan tabel ke opsi `"s.d. 100"` agar semua data (bukan hanya 10 SPP 
 **Q: Apakah tanggal SPP bisa diedit setelah dibuat?**
 A: Tidak — tanggal SPP tidak bisa diedit setelah tersimpan.
 
+**Q: Pembayaran ke 1 penerima saja (misal listrik ke PLN), apakah tetap boleh pakai SPP LS-Banyak Penerima?**
+A: Ini dibahas sebagai alternatif sementara ketika BAST Non Kontraktual masih ada kendala, namun jawaban resmi tim menyebut Validasi SPP juga sempat belum bisa karena kendala posting rule.
+
+**Q: Belanja UP (keperluan kantor, snack rapat, materai, bensin, dll.) dicatat lewat mekanisme apa?**
+A: Boleh menggunakan SPP LS-Banyak Penerima, `sepanjang tidak menghasilkan aset/persediaan`. Jika menghasilkan aset/persediaan, harus lewat Pencatatan BAST Non Kontraktual.
+
 ---
 
 ## 6. Pembayaran Honor/Remunerasi & BPJS
@@ -89,23 +95,17 @@ A: Remunerasi dicatat `net` (sudah dipotong 1%) — misal remun 1000 dipotong 1%
 
 ---
 
-## 7. RTPH (Rekam Transaksi Penerimaan/Pencatatan Penerimaan PNBP BLU)
+## 7. RTPH
 
 **Q: Saat mencatat RTPH, kenapa daftar "Data Wajib Pajak" pada popup pencarian identitas tetap kosong meski referensi Wajib Pajak/Wajib Bayar sudah diisi lewat menu Bendahara → Referensi?**
 A: Isu ini masih dalam penelusuran tim/SITP — referensi yang sudah diisi belum terbaca otomatis oleh menu RTPH.
 
 ---
 
-## 8. Lain-lain (Kontrak, Notifikasi, OTP)
+## 8. Notifikasi & OTP
 
 **Q: Notifikasi tertentu muncul saat transaksi — apakah itu error atau normal?**
 A: Tidak semua notifikasi berarti error; beberapa hanya notifikasi informasi dan transaksi tetap bisa dilanjutkan. Jika ragu, screenshot notifikasinya dan tanyakan ke tim untuk dipastikan.
-
-**Q: Belanja UP (keperluan kantor, snack rapat, materai, bensin, dll.) dicatat lewat mekanisme apa?**
-A: Boleh menggunakan SPP LS-Banyak Penerima, `sepanjang tidak menghasilkan aset/persediaan`. Jika menghasilkan aset/persediaan, harus lewat Pencatatan BAST Non Kontraktual.
-
-**Q: Pembayaran ke 1 penerima saja (misal listrik ke PLN), apakah tetap boleh pakai SPP LS-Banyak Penerima?**
-A: Ini dibahas sebagai alternatif sementara ketika BAST Non Kontraktual masih ada kendala, namun jawaban resmi tim menyebut Validasi SPP juga sempat belum bisa karena kendala posting rule.
 
 **Q: OTP belum bisa digunakan, solusinya?**
 A: Akan menggunakan nomor baru, detil teknisnya masih ditindaklanjuti.
