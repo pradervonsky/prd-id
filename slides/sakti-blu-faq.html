@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAKTI BLU FAQ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0a0a0a;
+      color: #d4d4d4;
+      min-height: 100vh;
+    }
+
+    /* ── Back link ── */
+
+    .back-link {
+      position: fixed;
+      top: 1.2em;
+      left: 1.5em;
+      z-index: 100;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #737373;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+      background: #0a0a0a;
+      padding: 0.35em 0.6em;
+      border-radius: 8px;
+    }
+    .back-link:hover { color: #fafafa; }
+    .back-link svg {
+      width: 14px; height: 14px; stroke: currentColor;
+      fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Page shell ── */
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 6rem 1.75rem 8rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5da9ff;
+      margin-bottom: 1em;
+    }
+
+    .page-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fafafa;
+      display: flex;
+      align-items: center;
+      gap: 0.45em;
+    }
+
+    .page-subtitle {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.6;
+    }
+
+    /* ── Table of contents ── */
+
+    .toc {
+      margin-top: 2.25rem;
+      padding: 1.1rem 1.3rem;
+      background: #111111;
+      border: 1px solid #1f1f1f;
+      border-radius: 12px;
+    }
+
+    .toc-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #737373;
+      margin-bottom: 0.75em;
+    }
+
+    .toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45em;
+    }
+
+    .toc a {
+      font-size: 0.85rem;
+      color: #a3a3a3;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .toc a:hover { color: #5da9ff; }
+
+    /* ── Rendered markdown content, Notion-style ── */
+
+    .content {
+      margin-top: 3rem;
+    }
+
+    .content h1 {
+      display: none; /* the page title above already covers the doc's H1 */
+    }
+
+    .content hr {
+      border: none;
+      border-top: 1px solid #1f1f1f;
+      margin: 2.75rem 0;
+    }
+
+    .content h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #7cc4fa;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .content p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #b3b3b3;
+      font-weight: 300;
+      margin-bottom: 1.6rem;
+    }
+
+    .content p:last-child { margin-bottom: 0; }
+
+    .content p > strong:first-child {
+      display: block;
+      color: #ffa657;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.45em;
+      line-height: 1.5;
+    }
+
+    .content strong {
+      color: #ffa657;
+      font-weight: 600;
+    }
+
+    .content em {
+      color: #8b8b8b;
+      font-style: italic;
+    }
+
+    .content a {
+      color: #5da9ff;
+      text-decoration: none;
+    }
+    .content a:hover { text-decoration: underline; }
+
+    .content code {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      background: #161616;
+      border: 1px solid #262626;
+      border-radius: 5px;
+      padding: 0.1em 0.4em;
+      font-size: 0.85em;
+      color: #9cdcfe;
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #1f1f1f;
+      font-size: 0.75rem;
+      color: #4d4d4d;
+    }
+
+    #loading {
+      font-size: 0.85rem;
+      color: #737373;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    slides
+  </a>
+
+  <div class="page">
+    <div class="eyebrow">Knowledge Base</div>
+    <h1 class="page-title">🗂️ SAKTI BLU FAQ</h1>
+    <p class="page-subtitle">
+      Pertanyaan yang sering diajukan seputar aplikasi SAKTI BLU, dirangkum dari riwayat
+      diskusi grup familiarisasi satker piloting.
+    </p>
+
+    <nav class="toc" id="toc" hidden>
+      <div class="toc-title">Daftar Isi</div>
+      <ol id="toc-list"></ol>
+    </nav>
+
+    <div id="loading">Memuat konten…</div>
+    <article class="content" id="content"></article>
+
+    <footer>Sumber: ekspor chat WhatsApp grup &ldquo;SAKTI BLU Familiarisasi&rdquo;.</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script>
+    marked.setOptions({ headerIds: true, mangle: false });
+
+    fetch('sakti-blu-faq.md')
+      .then((res) => {
+        if (!res.ok) throw new Error('Gagal memuat sakti-blu-faq.md (' + res.status + ')');
+        return res.text();
+      })
+      .then((md) => {
+        document.getElementById('content').innerHTML = marked.parse(md);
+        document.getElementById('loading').remove();
+        buildToc();
+      })
+      .catch((err) => {
+        document.getElementById('loading').textContent = err.message;
+      });
+
+    function slugify(text) {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-');
+    }
+
+    function buildToc() {
+      const headings = document.querySelectorAll('#content h2');
+      if (!headings.length) return;
+      const list = document.getElementById('toc-list');
+      headings.forEach((h) => {
+        const id = slugify(h.textContent);
+        h.id = id;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      document.getElementById('toc').hidden = false;
+    }
+  </script>
+</body>
+</html>
