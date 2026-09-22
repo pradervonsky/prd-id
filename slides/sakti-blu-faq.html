@@ -160,6 +160,14 @@
       font-size: 1rem;
       margin-bottom: 0.45em;
       line-height: 1.5;
+      padding-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    .content .a-line {
+      display: block;
+      padding-left: 1.5em;
+      text-indent: -1.5em;
     }
 
     .content strong {
@@ -228,7 +236,7 @@
     <div id="loading">Memuat konten…</div>
     <article class="content" id="content"></article>
 
-    <footer>Sumber: ekspor chat WhatsApp grup &ldquo;SAKTI BLU Familiarisasi&rdquo;.</footer>
+    <footer></footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
@@ -243,11 +251,29 @@
       .then((md) => {
         document.getElementById('content').innerHTML = marked.parse(md);
         document.getElementById('loading').remove();
+        wrapAnswerLines();
         buildToc();
       })
       .catch((err) => {
         document.getElementById('loading').textContent = err.message;
       });
+
+    function wrapAnswerLines() {
+      document.querySelectorAll('#content p > strong:first-child').forEach((strong) => {
+        const rest = [];
+        let node = strong.nextSibling;
+        while (node) {
+          const next = node.nextSibling;
+          rest.push(node);
+          node = next;
+        }
+        if (!rest.length) return;
+        const span = document.createElement('span');
+        span.className = 'a-line';
+        rest.forEach((n) => span.appendChild(n));
+        strong.parentNode.appendChild(span);
+      });
+    }
 
     function slugify(text) {
       return text
